@@ -158,21 +158,20 @@ The `apple.element` Object will be needed in order to make any modifications to 
 >   **1.** Copy the below function into your program down in the helper functions section. The `makeApple()` function already exists, so you just need to fill in the code block for the function:
 >
 > ```js
-> /* Create an HTML element for the apple using jQuery. Then find a random
->  * position on the board that is not occupied and position the apple there.
->  */
-> function makeApple() {
->   // make the apple jQuery Object and append it to the board
->   apple.element = $("<div>").addClass("apple").appendTo(board);
->
->   // get a random available row/column on the board
->   var randomPosition = getRandomAvailablePosition();
->
->   // initialize the row/column properties on the Apple Object
->   apple.row = randomPosition.row;
->   apple.column = randomPosition.column;
->
->   // position the apple on the screen
+ /* Create an HTML element for the apple using jQuery. Then find a random
+  * position on the board that is not occupied and position the apple there.
+ */
+ function makeApple() {
+  // make the apple jQuery Object and append it to the board
+   apple.element = $("<div>").addClass("apple").appendTo(board);
+
+   // get a random available row/column on the board
+var randomPosition = getRandomAvailablePosition();
+
+  // initialize the row/column properties on the Apple Object
+   apple.row = randomPosition.row;
+   apple.column = randomPosition.column;
+  // position the apple on the screen
 >   repositionSquare(apple);
 > }
 > ```
