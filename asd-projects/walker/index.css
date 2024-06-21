@@ -1,14 +1,15 @@
 
 body {
-  background-color: darkgreen;
+  background-color: rgb(8, 44, 8);
 }
 
 #board {
-  width: 440px;
-  height: 440px;
-  border: 1px solid white;
+  width: 1070px;
+  height: 1000px;
+  border: 2px solid white;
   background-color: black;
   position: relative;
+left: 550px;
 }
 
 #walker {
@@ -17,6 +18,16 @@ body {
   height: 50px;
   position: absolute;
   border-radius: 20px;
+  right: 30px;
+  top: 200px;
+  border-color:white;
+
+
+  outline-style: dotted;
+
+  outline-width: 10px;
+  outline: white;
+
 
 }
 
@@ -26,6 +37,67 @@ body {
   height: 60px;
   position: absolute;
   border-radius: 10px;
+  left: 30px;
+  top: 200px;
+
+  outline-style: dotted;
+
+  outline-width: 2px;
+  outline-color: white;
+  
+  
+
 
 }
+
+h1 {
+  color: rgb(0, 0, 0);
+  -webkit-text-stroke-color: rgb(108, 108, 108);
+  -webkit-text-stroke-width: 2px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 80px;
+}
+
+#cscore {
+  float:left;
+  content : "X";
+}
+
+#wscore {
+  float:right;
+  content : "X";
+}
+
+#msg {
+  text-align:center;
+  content : "X";
+}
+
+#timer {
+  text-align:center;
+  top: 50px;
+  content : "X";
+}
+
+#emp {
+  text-align: center;
+  top:150px;
+  font-size: large;
+  -webkit-text-stroke-width: 0.8px;
+  -webkit-text-stroke-color: rgb(75, 78, 118);
+  
+}
+
+#hearts {
+  text-align: center;
+  top:200px;
+  font-size:x-large;
+  -webkit-text-stroke-width: 0.8px;
+  -webkit-text-stroke-color: red
+  
+}
+
+
+
+
 
