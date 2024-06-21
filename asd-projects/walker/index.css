@@ -1,7 +1,11 @@
 
 body {
   background-color: rgb(8, 44, 8);
+  zoom: 90%;
+
 }
+
+
 
 #board {
   width: 1070px;
@@ -10,6 +14,8 @@ body {
   background-color: black;
   position: relative;
 left: 550px;
+text-align:center;
+z-index: -2;
 }
 
 #walker {
@@ -42,11 +48,22 @@ left: 550px;
 
   outline-style: dotted;
 
-  outline-width: 2px;
+  outline-width: 5px;
   outline-color: white;
   
   
 
+
+}
+
+#gamemode {
+  position:absolute;
+  left:155px;
+  top: 400px;
+  font-size:60px;
+  width: 800px;
+  height: 60px;
+  text-align:center;
 
 }
 
@@ -79,6 +96,11 @@ h1 {
   content : "X";
 }
 
+
+
+
+
+
 #emp {
   text-align: center;
   top:150px;
@@ -97,7 +119,66 @@ h1 {
   
 }
 
+#subboard {
+  text-align:center;
+}
+
+#botSetup {
+  position:absolute;
+left:410px;
+top: 250px;
+font-size:60px;
+width: 360px;
+height: 60px;
 
 
+
+}
+
+
+#playerSetup {
+position:absolute;
+  left:370px;
+  font-size:60px;
+  top: 570px;
+  text-align:center;
+  width: 360px;
+  height: 60px;
+}
+
+
+#playerBox {
+  background-color: rgb(99, 98, 98);
+  width: 360px;
+  height: 60px;
+  position: absolute;
+  border-radius: 10px;
+  left: 0px;
+  top: 10px;
+  opacity: 20%;
+z-index: -1;
+
+  
+  
+
+
+}
+
+#botBox {
+  background-color: rgb(99, 98, 98);
+  width: 310px;
+  height: 60px;
+  position: absolute;
+  border-radius: 10px;
+  left: 25px;
+  top: 10px;
+  opacity: 20%;
+z-index: -1;
+
+  
+  
+
+
+}
 
 
