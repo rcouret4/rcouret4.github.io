@@ -15,81 +15,85 @@ The CSS ids you will work with are:
 
 // TODO 2: Implement bubbleSort
 
-async function bubbleSort (array) {
-    
+async function bubbleSort(array) {
 
-for (var i = 0; i< array.length-1; i++) {
-    
-    for (var j = array.length-1; j > i+1; j--) {
-        
-     
-    
-    
-if ((array[j].value) < (array[j-1].value))
-    {console.log("trigger")
-        swap(array,j,j-1)
+    for (var i = 0; i < array.length - 1; i++) {
+
+        for (var j = array.length - 1; j > i; j--) {
 
 
-updateCounter(bubbleCounter);
-await sleep();
+            if (array[j].value < array[j - 1].value) {
+
+                swap(array, j, j - 1);
+
+                updateCounter(bubbleCounter);
+
+                await sleep();
+            }
+        }
     }
 }
-
-}
-
-
-}
-
 
 
 
 // TODO 3: Implement quickSort
+async function quickSort(array, left, right) {
+    debugger;
+    if ((right - left) > 0) {
+        var index = await partition(array, left, right);
+        if (left < index - 1) {
+            
+            await quickSort(array, left, index - 1);
+        }
 
-async function quickSort (array,le,ri) {
- 
-if ((ri - le) > 0) {
-    var index = partition(array,le,ri)
-}
-if (le < (index - 1))
-    {quickSort(array, le, index - 1)}
-if (index < ri) {
-    quickSort(array, index, ri)
-}
-}
 
-// TODOs 4 & 5: Implement partition
-
-async function partition (array,le,ri) {
-    var pivot = array[Math.floor((ri + le)/2)].value;
-   
-
-while (array[le].value < array[ri].value) {
-  console.log(pivot+" "+array[le].value+" "+array[ri].value)
-
-    while (array[le].value < pivot ) {array[le].value = array[le].value+1
-        console.log(pivot+" "+array[le].value+" "+array[ri].value)
-    }
-    while (array[ri].value > pivot ) {array[ri].value = array[ri].value-1
-        console.log(pivot+" "+array[le].value+" "+array[ri].value)
-    }
-   
-    if (array[le].value< array[ri].value) {
-        swap(array,le,ri)
-        updateCounter(bubbleCounter);
-await sleep();
+        if (right > index) {
+            await quickSort(array, index, right);
+        }
     }
 }
-return(le+1)
+
+async function partition(array, left, right) {
+    var pivotIndex = Math.floor((right + left) / 2);
+
+    var pivotValue = array[pivotIndex].value;
+
+    while (left <= right) {
+        while (array[left].value < pivotValue) {
+
+            left++;
+        }
+        while (array[right].value > pivotValue) {
+            right--;
+        }
+
+
+        if (left <= right) {
+            swap(array, left, right);
+            updateCounter(quickCounter);
+            await sleep();
+
+            left++;
+            right--;
+        }
+    }
+    return left;
 }
+
+
 
 // TODO 1: Implement swap
 
-function swap (array,i,j) {
+function swap(array, i, j) {
+    // console.log("swapping "+array[i]+" and "+array[j])
     // forgot what this is called, but it switches the indexes without ever having to create a variable
-    [array[i], array[j]] = [array[j], array[i]]
+    var ix = array[i]
+    array[i] = array[j]
+    array[j] = ix
+    // this didnt work for some reason [array[i], array[j]] = [array[j], array[i]]
     drawSwap(array, i, j)
-        // pass array,i,j to drawSwap
-    
+    // pass array,i,j to drawSwap
+
 }
 
 ///////////////////////////////////////////////////////////////////////
@@ -99,12 +103,12 @@ function swap (array,i,j) {
 //////////////////////////// HELPER FUNCTIONS /////////////////////////
 
 // this function makes the program pause by SLEEP_AMOUNT milliseconds whenever it is called
-function sleep(){
+function sleep() {
     return new Promise(resolve => setTimeout(resolve, SLEEP_AMOUNT));
 }
 
 // This function draws the swap on the screen
-function drawSwap(array, i, j){
+function drawSwap(array, i, j) {
     let element1 = array[i];
     let element2 = array[j];
 
@@ -115,6 +119,6 @@ function drawSwap(array, i, j){
 }
 
 // This function updates the specified counter
-function updateCounter(counter){
+function updateCounter(counter) {
     $(counter).text("Move Count: " + (parseFloat($(counter).text().replace(/^\D+/g, '')) + 1));
 }

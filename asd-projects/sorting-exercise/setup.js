@@ -6,13 +6,15 @@
 // THE CONSTANTS BELOW MAY BE ALTERED FOR EXPERIMENTATION PURPOSES
 
 // set the delay between each sort step
-const SLEEP_AMOUNT = 500;
+const SLEEP_AMOUNT = 0;
 
 // set the max number of squares
-const MAX_SQUARES = 16;
+const MAX_SQUARES = 500;
+// Large data sizes are cool, i wish I could add a sound that plays everytime a sort occurs that changes frequency depending on index value but no idea how
 
 // set constants for pseudo-random number generation
-const SEED = 2;
+const SEED = Math.floor(Math.random()*1000)
+
 const FACTOR = 1774339;
 const INCREASE = 7181930;
 
