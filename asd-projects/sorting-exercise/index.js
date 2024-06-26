@@ -58,7 +58,7 @@ async function partition(array, left, right) {
 
     var pivotValue = array[pivotIndex].value;
 
-    while (left <= right) {
+    while (left < right) {
         while (array[left].value < pivotValue) {
 
             left++;
@@ -68,16 +68,15 @@ async function partition(array, left, right) {
         }
 
 
-        if (left <= right) {
+        if (left < right) {
             swap(array, left, right);
             updateCounter(quickCounter);
             await sleep();
 
-            left++;
-            right--;
+        
         }
     }
-    return left;
+    return left +1;
 }
 
 
